@@ -10,13 +10,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "account")
-public class AccountEntity {
-	
+@Table(name = "operation_types")
+public class OperationsTypesEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-    @Column(name = "document_number")
+    @Column(name = "description")
 	private String documentNumber;
-
 }

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pismo.codechallenger.repository.AccountRepository;
+import com.pismo.codechallenger.repository.entity.AccountEntity;
 
 @RestController
 @RequestMapping("accounts")
@@ -21,4 +22,11 @@ public class AccountController {
 		return repository.findAll();
 	}
 
+	
+	@GetMapping("/savetest")
+	public Object save() {
+		AccountEntity account = new AccountEntity();
+		account.setDocumentNumber("12345678900");
+		return repository.save(account);
+	}
 }
