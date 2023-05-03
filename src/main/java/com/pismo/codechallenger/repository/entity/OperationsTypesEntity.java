@@ -17,5 +17,5 @@ public class OperationsTypesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
     @Column(name = "description")
-	private String documentNumber;
+	private String description;
 }
