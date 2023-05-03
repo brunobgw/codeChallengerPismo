@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pismo.codechallenger.dto.AccountDTO;
-import com.pismo.codechallenger.repository.AccountRepository;
 import com.pismo.codechallenger.repository.entity.AccountEntity;
 import com.pismo.codechallenger.service.AccountService;
 
