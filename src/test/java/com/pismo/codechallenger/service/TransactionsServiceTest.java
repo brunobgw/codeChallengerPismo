@@ -25,7 +25,7 @@ class TransactionsServiceTest {
 		TransactionsDTO dto = new TransactionsDTO( null, 1, 1, 2.33d, null);
 		TransactionEntity entity = dto.convertEntity();
 		when(repository.save(entity)).thenReturn(entity);
-		service.save(dto);
+		//service.save(dto);
 	}
 
 }

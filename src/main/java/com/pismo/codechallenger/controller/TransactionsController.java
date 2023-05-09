@@ -20,7 +20,7 @@ public class TransactionsController {
 	private final TransactionsService service;
 	
 	@PostMapping
-	public ResponseEntity<TransactionEntity> save(@RequestBody TransactionsDTO account) {
+	public ResponseEntity<TransactionEntity> save(@RequestBody TransactionsDTO account) throws Exception {
 		return ResponseEntity.ok(service.save(account));
 	}
 }

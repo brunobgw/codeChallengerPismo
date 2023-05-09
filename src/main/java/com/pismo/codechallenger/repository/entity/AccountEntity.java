@@ -22,5 +22,7 @@ public class AccountEntity {
 	private Integer id;
     @Column(name = "document_number")
 	private String documentNumber;
+    @Column(name = "BALANCE")
+    private Double balance;
 
 }
