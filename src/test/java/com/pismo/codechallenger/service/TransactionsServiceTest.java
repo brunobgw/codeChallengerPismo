@@ -1,5 +1,7 @@
 package com.pismo.codechallenger.service;
 
+import static org.mockito.Mockito.when;
+
 import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,6 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import com.pismo.codechallenger.dto.TransactionsDTO;
 import com.pismo.codechallenger.repository.TransactionsRepository;
+import com.pismo.codechallenger.repository.entity.TransactionEntity;
 
 @ExtendWith(MockitoExtension.class)
 class TransactionsServiceTest {
@@ -23,7 +26,9 @@ class TransactionsServiceTest {
 	@Test
 	void test() {
 		TransactionsDTO dto = new TransactionsDTO( null, 1, 1, 2.33d, null);
-		service.save(dto);
+		TransactionEntity entity = dto.convertEntity();
+		when(repository.save(entity)).thenReturn(entity);
+		System.out.println(service.save(dto));
 	}
 
 }
