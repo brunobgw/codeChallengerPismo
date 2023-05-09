@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: arm64v8/mysql:oracle
+    command: --lower_case_table_names=1
+    restart: always
+    expose:
+      - 3306
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "abcd1234"
+      MYSQL_ROOT_HOST: "%"
+    volumes:
+      - dbdata:/var/lib/mysql
+volumes:
+  dbdata:

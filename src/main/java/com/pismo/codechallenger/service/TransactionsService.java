@@ -6,17 +6,25 @@ import com.pismo.codechallenger.dto.TransactionsDTO;
 import com.pismo.codechallenger.repository.TransactionsRepository;
 import com.pismo.codechallenger.repository.entity.TransactionEntity;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @AllArgsConstructor
 @Service
 public class TransactionsService {
 
 	private final TransactionsRepository repository;
+	private final AccountService accountService;
 
-	public TransactionEntity save(TransactionsDTO transaction) {
+	@Transactional
+	public TransactionEntity save(TransactionsDTO transaction) throws Exception {
 		TransactionEntity entity = transaction.convertEntity();
-		return repository.save(entity);
+		repository.save(entity);
+		accountService.adjustBalance(entity);
+		log.info("Persisted Entity");
+		return entity;
 	}
 	
 }
