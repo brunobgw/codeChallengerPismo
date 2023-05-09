@@ -4,8 +4,12 @@ import java.time.LocalDateTime;
 
 import com.pismo.codechallenger.repository.entity.TransactionEntity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class TransactionsDTO {
 	

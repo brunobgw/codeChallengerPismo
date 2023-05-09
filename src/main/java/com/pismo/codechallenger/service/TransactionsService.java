@@ -7,7 +7,9 @@ import com.pismo.codechallenger.repository.TransactionsRepository;
 import com.pismo.codechallenger.repository.entity.TransactionEntity;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @AllArgsConstructor
 @Service
 public class TransactionsService {
@@ -16,7 +18,9 @@ public class TransactionsService {
 
 	public TransactionEntity save(TransactionsDTO transaction) {
 		TransactionEntity entity = transaction.convertEntity();
-		return repository.save(entity);
+		repository.save(entity);
+		log.info("Persisted Entity");
+		return entity;
 	}
 	
 }
